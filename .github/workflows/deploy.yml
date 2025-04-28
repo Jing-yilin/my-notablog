@@ -1,0 +1,33 @@
+name: Deploy Notablog
+
+on:
+  schedule:
+    # 每20分钟运行一次
+    - cron: '*/20 * * * *'
+  # 也允许手动触发
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+          
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate static site
+        run: npm run build
+          
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          branch: gh-pages # 部署到 gh-pages 分支
+          folder: notablog-starter/public # 包含构建输出的文件夹
+          clean: true # 自动删除部署分支中的旧文件 

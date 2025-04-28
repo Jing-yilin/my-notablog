@@ -1,0 +1,17 @@
+{
+  "name": "my-notablog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd notablog-starter && npx notablog generate .",
+    "preview": "cd notablog-starter && npx notablog preview ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "A blog generated from Notion using Notablog",
+  "dependencies": {
+    "notablog": "^0.8.1"
+  }
+}
