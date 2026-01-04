@@ -1,9 +1,9 @@
 name: Deploy Notablog
 
 on:
-  schedule:
-    # 每20分钟运行一次
-    - cron: '*/10 * * * *'
+  # schedule:
+  #   # 每20分钟运行一次
+  #   - cron: '*/10 * * * *'
   # 也允许手动触发
   workflow_dispatch:
 
